@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tp.DecoratorController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefHeight="355.0" prefWidth="140.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="355.0" prefWidth="155.0" spacing="10.0" style="-fx-padding: 30 0 0 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="165.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#circleButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-radius: 5em;" text="Circle" />
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#circleButtonAction" style="-fx-background-radius: 5em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="165.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#rectButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-radius: 0em;" text="Rectangle" />
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#rectButtonAction" style="-fx-background-radius: 0em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="20.0" layoutY="80.0" prefHeight="30.0" prefWidth="165.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#triangleButtonAction" prefHeight="30.0" prefWidth="80.0" text="Triangle" />
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#triangleButtonAction" style="-fx-background-radius: 0em; -fx-min-width: 30px; -fx-max-width: 30px; -fx-min-height: 30px; -fx-max-height: 30px;" styleClass="triangleButton" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <Pane fx:id="drawingPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ComboBox fx:id="colorComboBox" layoutX="436.0" layoutY="9.0" prefWidth="150.0" promptText="Color" AnchorPane.rightAnchor="14.0" />
+                  <ComboBox fx:id="shapeSizeComboBox" layoutX="275.0" layoutY="9.0" prefHeight="27.0" prefWidth="87.0" promptText="Size" AnchorPane.rightAnchor="175.0" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
