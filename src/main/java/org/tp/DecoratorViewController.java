@@ -2,20 +2,17 @@ package org.tp;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import org.apache.commons.io.FilenameUtils;
 import org.tp.Adapter.FileSaver;
-import org.tp.Adapter.ImageSaver;
 import org.tp.Decorator.MyShape.Circle;
 import org.tp.Decorator.MyShape.Rectangle;
 import org.tp.Decorator.MyShape.Triangle;
@@ -24,11 +21,8 @@ import org.tp.Decorator.ShapeDecorator.GreenShapeDecorator;
 import org.tp.Decorator.ShapeDecorator.RedShapeDecorator;
 import org.tp.Decorator.ShapeDecorator.WhiteShapeDecorator;
 import org.tp.Decorator.ShapeDecorator.YellowShapeDecorator;
-import org.tp.Singleton.SnapshotHandler;
 
-import javax.imageio.ImageIO;
 import java.io.File;
-import java.io.IOException;
 
 public class DecoratorViewController {
 
@@ -149,7 +143,7 @@ public class DecoratorViewController {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Color");
-        alert.setContentText("Please choose a color");
+        alert.setContentText("Please choose a color and a size");
         alert.initOwner(owner);
         alert.show();
     }

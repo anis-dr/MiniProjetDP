@@ -18,7 +18,7 @@ public class DraggableUIUsingDecorator extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("DecoratorUI.fxml"));
         Scene scene = new Scene(root);
 
-        primaryStage.setTitle("FXML Welcome");
+        primaryStage.setTitle("Mini Project");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
