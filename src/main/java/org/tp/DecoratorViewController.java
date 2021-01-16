@@ -13,6 +13,9 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+import org.apache.commons.io.FilenameUtils;
+import org.tp.Adapter.FileSaver;
+import org.tp.Adapter.ImageSaver;
 import org.tp.Decorator.MyShape.Circle;
 import org.tp.Decorator.MyShape.Rectangle;
 import org.tp.Decorator.MyShape.Triangle;
@@ -129,20 +132,16 @@ public class DecoratorViewController {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG Image", "*.png"));
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG File", "*.png"),
+                new FileChooser.ExtensionFilter("JPEG File", "*.jpeg"));
+
         File file = fileChooser.showSaveDialog(owner);
+        String fileType = FilenameUtils.getExtension(file.getName());
 
-        if (file != null) {
-            try {
-                WritableImage writableImage = SnapshotHandler.snap(drawingPane);
+        FileSaver fileSaver = new FileSaver();
 
-                if (writableImage != null) {
-                    ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
-                }
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
+        fileSaver.save(fileType, file, drawingPane);
     }
 
     private void showError(ActionEvent event) {

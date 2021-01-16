@@ -22,7 +22,7 @@ public class SnapshotHandler {
             int imageWidth = (int) Math.round(bounds.getWidth());
             int imageHeight = (int) Math.round(bounds.getHeight());
             final SnapshotParameters snapPara = new SnapshotParameters();
-            snapPara.setFill(Color.TRANSPARENT);
+            snapPara.setFill(Color.GRAY);
             WritableImage snapshot = new WritableImage(imageWidth, imageHeight);
             return node.snapshot(snapPara, snapshot);
         } catch (Exception e) {
