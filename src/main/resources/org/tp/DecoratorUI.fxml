@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tp.DecoratorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tp.DecoratorViewController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -47,6 +47,7 @@
                <children>
                   <ComboBox fx:id="colorComboBox" layoutX="436.0" layoutY="9.0" prefWidth="150.0" promptText="Color" AnchorPane.rightAnchor="14.0" />
                   <ComboBox fx:id="shapeSizeComboBox" layoutX="275.0" layoutY="9.0" prefHeight="27.0" prefWidth="87.0" promptText="Size" AnchorPane.rightAnchor="175.0" />
+                  <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#exportButtonAction" text="Export" AnchorPane.leftAnchor="14.0" />
                </children>
             </AnchorPane>
          </bottom>

@@ -1,5 +1,12 @@
 package org.tp;
 
+import javafx.embed.swing.SwingFXUtils;
+import javafx.geometry.Bounds;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 import org.tp.Decorator.*;
 import org.tp.Decorator.MyShape.Circle;
 import org.tp.Decorator.MyShape.Rectangle;
@@ -18,8 +25,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import org.tp.Singleton.SnapshotHandler;
 
-public class DecoratorController {
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
+
+public class DecoratorViewController {
 
     @FXML
     private Pane drawingPane;
@@ -112,6 +124,28 @@ public class DecoratorController {
                 return new GreenShapeDecorator(shape);
             default:
                 return shape;
+        }
+    }
+
+    @FXML
+    void exportButtonAction(ActionEvent event) {
+        Window owner = ((Node) event.getTarget()).getScene().getWindow();
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG Image", "*.png"));
+        File file = fileChooser.showSaveDialog(owner);
+
+        if (file != null) {
+            try {
+                WritableImage writableImage = SnapshotHandler.snap(drawingPane);
+
+                if (writableImage != null) {
+                    ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
+                }
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 
