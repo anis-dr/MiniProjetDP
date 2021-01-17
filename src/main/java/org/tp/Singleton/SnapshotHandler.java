@@ -7,16 +7,20 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
 public class SnapshotHandler {
-    private final SnapshotHandler instance = new SnapshotHandler();
+    private static SnapshotHandler instance = null;
 
-    public SnapshotHandler() {
+
+    private SnapshotHandler() {
+        // Exists only to defeat instantiation.
     }
 
-    public SnapshotHandler getInstance() {
+    /* Static 'instance' method */
+    public static SnapshotHandler getInstance() {
+        if (instance == null) instance = new SnapshotHandler();
         return instance;
     }
 
-    public static WritableImage snap(Node node) {
+    public WritableImage snap(Node node) {
         try {
             final Bounds bounds = node.getLayoutBounds();
             int imageWidth = (int) Math.round(bounds.getWidth());

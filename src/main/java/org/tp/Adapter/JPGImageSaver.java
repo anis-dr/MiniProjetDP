@@ -19,7 +19,7 @@ public class JPGImageSaver implements AdvancedImageSaver {
     public void saveJpg(File file, Node drawingPane) {
         if (file != null) {
             try {
-                WritableImage writableImage = SnapshotHandler.snap(drawingPane);
+                WritableImage writableImage = SnapshotHandler.getInstance().snap(drawingPane);
                 if (writableImage != null) {
                     ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "jpg", file);
                 }
